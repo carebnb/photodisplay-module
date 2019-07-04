@@ -5,6 +5,8 @@ const createFakeData = () => {
   const fakeDataArray = [];
 
   for (let i = 1; i < 697; i += 1) {
+    const j = Math.ceil(Math.random() * 41);
+    console.log(j);
     fakeDataArray.push([
       `./webPhotos/photo-${Math.floor(Math.random() * 42)}.webp`,
       faker.lorem.sentence(),
