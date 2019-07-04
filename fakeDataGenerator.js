@@ -6,7 +6,7 @@ const createFakeData = () => {
 
   for (let i = 1; i < 697; i += 1) {
     fakeDataArray.push([
-      `https://s3-us-west-1.amazonaws.com/fec-carebnb/photos/photo-${i}.jpg`,
+      `./webPhotos/photo-${Math.floor(Math.random() * 42)}.webp`,
       faker.lorem.sentence(),
       faker.random.boolean(),
       Math.ceil((i % 101) + 1),
@@ -16,7 +16,7 @@ const createFakeData = () => {
 };
 
 const writeDataToFile = (array) => {
-  fs.writeFileSync('fakeData.txt', array[0].toString(), (err) => {
+  fs.writeFileSync('localFakeData.txt', array[0].toString(), (err) => {
     if (err) {
       throw err;
     }
@@ -24,7 +24,7 @@ const writeDataToFile = (array) => {
 
   for (let i = 1; i <= array.length - 1; i += 1) {
     const fakeStr = array[i].toString();
-    fs.appendFile('fakeData.txt', `\n${fakeStr}`, (err) => {
+    fs.appendFile('localFakeData.txt', `\n${fakeStr}`, (err) => {
       if (err) {
         throw err;
       }
